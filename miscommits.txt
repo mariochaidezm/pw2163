@@ -1,0 +1,11 @@
+commit 41c6975553ecafd0a216eeff8035526e74e38997
+Author: mariochaidezm <mario.chaidez.m@gmail.com>
+Date:   Fri Sep 2 11:33:17 2016 -0600
+
+    Cambio en mi readme.txt
+
+commit 3d8837437a3b26c590d8b6acd6f338d32debff39
+Author: mariochaidezm <mario.chaidez.m@gmail.com>
+Date:   Tue Aug 30 11:55:11 2016 -0600
+
+    Commit inicial con read.txt
