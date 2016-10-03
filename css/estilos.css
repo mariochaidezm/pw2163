@@ -1,0 +1,81 @@
+/*selectores*/
+/*1.- Etiquetas*/
+/*2.- Identificadores*/
+/*3.- Clases*/
+
+body /*Selector  - Etiquetas*/
+{
+		/*Atributo: Valor; */
+		border: 1px solid blue;
+		border-radius: 5px;
+		font-size: 16px;  /*tamaño de fuente estandar*/
+		max-width: 1024px;
+		margin: 0px auto;
+	
+}
+
+footer 
+{
+	border: 1px solid blue;
+	font-size: 1.5em;
+	text-align: center;  /*alineamos todo el texto*/
+}
+
+
+
+header {
+
+		background: blue; /*Color fondo*/
+		border: 1px solid red;
+		color: white ; /*Color letra*/
+		text-align: center; /*alineacion*/
+		/*padding: 0px 0px 10px 0px;*/
+}
+header img 
+{
+	float: right;
+	margin: -50px 20px 0px 0px;
+	width: 100px; /*ancho de la imagen*/
+}
+header nav ul li 
+{
+	/*border: 1px solid yellow;*/
+	background: hotpink ;
+	border-radius: 5px;
+	box-shadow: 2px 2px;
+	display: inline-block; /*rompe el modelo de caja*/
+	width:80px; /*rompe del boton*/
+	margin: 0px 10px 50px 0px; /*separo las cajas*/
+		padding:5px 10px; /*agarrando los botones internos*/
+}
+
+header nav ul li:hover/*hover mouse por encima*/
+{
+background: white; /*color de fondo*/
+color: orange; /*color de letra
+*/
+}
+
+
+main section 
+{
+margin: 10px 0px 0px 0px;
+
+}
+main section article
+{
+	/*border:1px solid red;*/
+	display: inline-block; /*despues del display casi por regla se pone un vertical-align: top;*/
+	vertical-align: top;
+	width: 23%;
+
+
+}
+
+
+
+
+
+
+
+
