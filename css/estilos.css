@@ -1,7 +1,16 @@
 /*selectores*/
+/*Directivas @*/
 /*1.- Etiquetas*/
 /*2.- Identificadores*/
 /*3.- Clases*/
+
+
+@font-face{
+	/*nombre de la fuente*/
+	font-family: 'Pacifico';
+	/*Donde esta el archivo?*/
+	src: url('fuentes/pacifico/pacifico.ttf');
+}
 
 body /*Selector  - Etiquetas*/
 {
@@ -22,7 +31,6 @@ footer
 }
 
 
-
 header {
 
 		background: blue; /*Color fondo*/
@@ -30,6 +38,10 @@ header {
 		color: white ; /*Color letra*/
 		text-align: center; /*alineacion*/
 		/*padding: 0px 0px 10px 0px;*/
+}
+header	h1 {
+	/*Agregamos la fuente h1*/
+	font-family: 'Roboto', sans-serif;
 }
 header img 
 {
@@ -44,6 +56,7 @@ header nav ul li
 	border-radius: 5px;
 	box-shadow: 2px 2px;
 	display: inline-block; /*rompe el modelo de caja*/
+	font-family: 'Open Sans', sans-serif;
 	width:80px; /*rompe del boton*/
 	margin: 0px 10px 50px 0px; /*separo las cajas*/
 		padding:5px 10px; /*agarrando los botones internos*/
@@ -68,6 +81,7 @@ main section article
 	display: inline-block; /*despues del display casi por regla se pone un vertical-align: top;*/
 	vertical-align: top;
 	width: 23%;
+	font-family: 'Pacifico', sans-serif;
 
 
 }
