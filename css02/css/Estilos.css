@@ -1,38 +1,70 @@
-body	
+body
 {
-	font-size: 16px /*1em*/
-	margin: 0 auto;		/*centrar todo el body en la pantalla*/
-	max-width: 1078px;	/*decision de la empresa*/
-	min-width: 1078px;
+	font-size: 16px; 
+	margin: 0 auto;
+	max-width: 1078px; /*decision de la empresa*/
+	min-width: 1078px; /*cancela movimiento de elemento*/
 }
 
-
-header nav ul li
-{
-	color: gray;
-	display: inline-block;
-	font-size: 1.8em;
-	tex
-}
-#granthams  /*logo de la empresa*/
-{
-	margin-top: 20px;
-	margin-left: 25px;
-
-}
 header input
 {
 	float: right;
 	margin-right: -200px;
-	margin-top: 15px;		
-	position: relative;   /*manda la imagen hacia adelante*/
+	margin-top: 15px;
+	position: relative;
 }
 
+header nav ul li
+{
+	border-bottom: 1px solid gray;
+	color: gray;
+	display: inline-block;
+	font-size: 1.8em;
+	margin-right: 15px;
+	/*text-decoration: underline;*/
+
+#bgoffer
+{
+	position: relative;
+	top: -410px;
+	left: -35;
+}
+
+#granthams /*logo de la empresa*/
+{
+	margin-top: 20px;
+	margin-left: 20px;
+}
 
 #paint
 {
-	float: right; /*mover a la derecha la imagen de la pintura*/
+	float: right;
 	margin-top: 20px;
 }
+#primerseccion article
+{
+	margin-top: 70px;
+}
 
-#
+#primerseccion article
+{
+	display: inline-block;
+	margin-left: 25px;
+	vertical-align: top;
+}
+
+#secc01art01
+{
+	width: 60%;
+}
+
+#secc01art02
+{
+	width: 30%;
+}
+
+
+
+
+
+
