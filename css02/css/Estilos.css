@@ -10,10 +10,13 @@ header input
 {
 	float: right;
 	margin-right: -200px;
-	margin-top: 15px;
+	/*margin-top: 15px;*/
 	position: relative;
 }
-
+header nav
+{
+	margin-left: 220px;
+}
 header nav ul li
 {
 	border-bottom: 1px solid gray;
@@ -23,12 +26,15 @@ header nav ul li
 	margin-right: 15px;
 	/*text-decoration: underline;*/
 
+}
 #bgoffer
 {
 	position: relative;
 	top: -410px;
 	left: -35;
 }
+
+
 
 #granthams /*logo de la empresa*/
 {
@@ -41,9 +47,11 @@ header nav ul li
 	float: right;
 	margin-top: 20px;
 }
-#primerseccion article
+#primerseccion 
 {
+	height: 317.99px;
 	margin-top: 70px;
+
 }
 
 #primerseccion article
@@ -57,10 +65,33 @@ header nav ul li
 {
 	width: 60%;
 }
-
+#segundaseccion article
+{
+	padding-right: 180px;
+	text-align:right;
+}
 #secc01art02
 {
 	width: 30%;
+}
+
+#terceraseccion article
+{
+	display: inline-block;
+	width: 22%;
+	vertical-align: top;
+}
+.numerotelefono
+{
+	color:#FF0099;
+	font-size: 2em;
+	font-weight: bold;
+}
+.wecanoffer
+{
+	color: #ff0099;
+	font-size: 3.5em;
+	font-weight: bold;
 }
 
 
