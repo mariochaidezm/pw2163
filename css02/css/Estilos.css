@@ -65,6 +65,18 @@ header nav ul li
 {
 	width: 60%;
 }
+#secc01art02 ul
+{
+	list-style: none;
+	padding-left: 10px;
+}
+
+#secc01art02 ul li:before
+{
+	 content: ". ";
+	 color:#FF0099;
+	 padding-left: -80px;
+}
 #segundaseccion article
 {
 	padding-right: 180px;
@@ -81,6 +93,16 @@ header nav ul li
 	width: 22%;
 	vertical-align: top;
 }
+#terceraseccion article img
+{
+	vertical-align: middle;
+}
+
+#mailinglist
+{
+	padding-top: 58px;
+}
+
 .numerotelefono
 {
 	color:#FF0099;
@@ -94,8 +116,23 @@ header nav ul li
 	font-weight: bold;
 }
 
+.colorazul
+{
+	color: #16bef8;
+}
 
+.colorrosa
+{
+	color: #F4A3C6;
+}
+.colorverde
+{
+	color: #A6DE47;
+}
 
-
-
+.colorazul,.colorrosa,.colorverde
+{
+	font-size: 1.5em;
+	font-weight: bold;
+}
 
