@@ -1,0 +1,10 @@
+
++ JavaScript (JS)
+-Lenguaje de programacion que se integra de alguna forma a una pagina web. html
+-Se interpreta"del lado del cliente", con una sintaxis muy parecida al Java.
+
+-En un inicio, a Js se le conocia como Livescript, menos poderoso y ligero.
+-Hoy en dia podemos ver diversas implementaciones Js tanto del lado del cliente como del lado del servidor.
+-El codigo Js al estar del lado del cliente, pierde la caracteristica del ocultamiento, es decir, cualquier persona puede tener acceso al codigo. 
+-Js se usa generalmente para la validacion de datos provenientes formularios y efectos visuales.
+-Se integra pervectamente con AJAX Y JSON.
