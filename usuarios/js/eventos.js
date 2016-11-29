@@ -1,4 +1,4 @@
-var inicio Usuarios = funtion()
+var inicioUsuarios = function()
 {
 	var validaUsuario = function()
 	{
@@ -8,9 +8,14 @@ var inicio Usuarios = funtion()
 		//preparar los parametros para AJAX
 		var parametros = "opcion=valida"+
 						 "&usuario="+usuario+
-						 "&clave"+clave+
+						 "&clave="+clave+
 						 "&id="+Math.random();
-		//Hacemos la peticion remota
+
+		//validamos
+		//validamos que no esten vacios
+		if(usuario!="" && clave !="")
+		{
+			//Hacemos la peticion remota
 		$.ajax({
 			cache:false,
 			type:"POST",
@@ -19,23 +24,27 @@ var inicio Usuarios = funtion()
 			data:parametros,
 			success:function(response){
 				//si todo sale bien
+				if(response.respuesta == true)
+				{
+					$("#entradaUsuario").hide("slow");
+					$("nav").show("slow");   //aiudaaaaaa
+				}
+				else
+				{
+					alert("Datos incorrectos :(");
+				}
 			},
 			error:function(xhr,ajaxOptions,thrownError) {
 				//si todo sale mal
 			}
 		});
-		//validamos
-		//validamos que no esten vacios
-		if(usuario!="" && clave !="")
-		{
-
 		}
 		else
 		{
 			alert("Usuario y clave son obligatorios")
 		}
 	}
-	$("btnValidaUsuario").on("click",validaUsuario)
+	$("#btnValidaUsuario").on("click",validaUsuario)
 }
 
 //Evento inicial
