@@ -44,6 +44,8 @@ var inicioUsuarios = function()
 			alert("Usuario y clave son obligatorios")
 		}
 	}
+	
+
 	$("#btnValidaUsuario").on("click",validaUsuario)
 	var teclaClave = function(tecla)
 	{
@@ -52,14 +54,71 @@ var inicioUsuarios = function()
 			validaUsuario(); //Funcion que valida usuario.
 		}
 	}
-	var Alta = function()
+
+	var alta = function()
 	{
-		$("#artAltaUsuarios").show("slow");
+		$("h2").html("Alta de usuarios");
+		$("#artAltaUsuarios").show("solow");
+		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
+		$("#btnGuardaUsuario").show();
+	}
+	var baja = function()
+	{
+		$("h2").html("Baja de usuarios");
+		$("#artAltaUsuarios").show("solow");
+		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
+		$("#btnBajaaUsuario").show();
+	}
+	var  Cambio = function()
+	{
+		$("h2").html("Alta de usuarios");
+		$("#artAltaUsuarios").show("solow");
+		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
+		$("#btnCambioUsuario").show();
+	}
+	var GuardaUsuario = function()
+	{
+
+	}
+
+	var teclaUsuartio = function(tecla)
+	{
+		if(tecla.which == 13)  //enter
+		{
+			var usuario = $("#txtUsuaron").val();
+			var parametros = "opcion=buscaUsuario"+
+							"&usuario="+usuario+
+							"&id="+Math.random();
+			$.ajax({
+			cache:false,
+			type:"POST",
+			dataType:"json",
+			url:"php/utilerias.php",
+			data:parametros,
+			success:function(response){
+				//si todo sale bien
+				if(response.respuesta == true)
+				{
+					$("#txtNombre").val(response.nombre);
+					$("#txtClaveNombre").val(response.clave);
+					$("#txtTipo option:selectec").text(response.tipo);
+				}
+			},
+			error:function(xhr,ajaxOptions,thrownError) {
+				console.log("Fallo en el servidor");
+				//si todo sale mal
+			}
+
+			}
+		});
 	}
 	//keypress: se ejecuta cada vez que presiono una tecla sobre el input.
 	$("#txtClave").on("keypress",teclaClave);
-	$("#btnAlta").on("click",Alta)
-	$("#btnGuardaUsuario").on("click",GuardaUsuario)
+	$("#btnAlta").on("click",Alta);
+	$("#btnBaja").on("click",Baja);
+	$("#btnCambio").on("click",Cambio);
+	$("#btnGuardaUsuario").on("click",GuardaUsuario);
+	$("#btnUsuarioNombre").on("click",teclaUsuario);
 }
 
 //Evento inicial
