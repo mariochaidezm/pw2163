@@ -1,135 +1,168 @@
 var inicioUsuarios = function()
 {
+	
 	var validaUsuario = function()
 	{
-		//javascript se conecta a php y este devuelve un JSON
+
+		//Extraer los datos de los input en el HTML
 		var usuario = $("#txtUsuario").val();
 		var clave   = $("#txtClave").val();
-		//preparar los parametros para AJAX
+		//Preparar los parámetros para AJAX
 		var parametros = "opcion=valida"+
-						 "&usuario="+usuario+
-						 "&clave="+clave+
-						 "&id="+Math.random();
-
-		//validamos
-		//validamos que no esten vacios
-		if(usuario!="" && clave !="")
+		                 "&usuario="+usuario+
+		                 "&clave="+clave+
+		                 "&id="+Math.random();
+		
+		//Validamos que no esten vacíos
+		if(usuario!="" && clave!="")
 		{
-			//Hacemos la peticion remota
-		$.ajax({
-			cache:false,
-			type:"POST",
-			dataType:"json",
-			url:"php/utilerias.php",
-			data:parametros,
-			success:function(response){
-				//si todo sale bien
-				if(response.respuesta == true)
-				{
-					$("#entradaUsuario").hide("slow");
-					$("nav").show("slow");   //aiudaaaaaa
+			//Hacemos la petición remota
+			$.ajax({
+				cache:false,
+				type:"POST",
+				dataType:"json",
+				url: "php/utilerias.php",
+				data:parametros,
+				success: function(response){
+					if(response.respuesta == true)
+					{    
+						$("#entradaUsuario").hide("slow");
+						$("nav").show("slow"); 
+					}
+					else
+					{
+						alert("Datos incorrectos :(");
+					}
+				},
+				error: function(xhr,ajaxOptions,thrownError){
+					//Si todo sale mal
 				}
-				else
-				{
-					alert("Datos incorrectos :(");
-				}
-			},
-			error:function(xhr,ajaxOptions,thrownError) {
-				//si todo sale mal
-			}
-		});
+			});
 		}
 		else
 		{
-			alert("Usuario y clave son obligatorios")
+			alert("Usuario y clave son obligatorios");
 		}
 	}
-	
-
-	$("#btnValidaUsuario").on("click",validaUsuario)
+	$("#btnValidaUsuario").on("click",validaUsuario);
 	var teclaClave = function(tecla)
 	{
-		if(tecla.which == 13) //Tecla Enter.  Enter 10-Retorno de carro   13-Avance de linea
+		if(tecla.which == 13) //Tecla enter.
 		{
-			validaUsuario(); //Funcion que valida usuario.
-		}
+			validaUsuario(); //Función que valida al usuario.
+		}	
 	}
-
-	var alta = function()
+	var Alta = function()
 	{
 		$("h2").html("Alta de usuarios");
-		$("#artAltaUsuarios").show("solow");
-		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
+		$("#artAltaUsuarios").show("slow");
+		//Escondo todos los botones
+		//contenidos en artAltaUsuarios
+		$("#artAltaUsuarios > button").hide();
 		$("#btnGuardaUsuario").show();
 	}
-	var baja = function()
+	var Baja = function()
 	{
 		$("h2").html("Baja de usuarios");
-		$("#artAltaUsuarios").show("solow");
-		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
-		$("#btnBajaaUsuario").show();
+		$("#artAltaUsuarios").show("slow");
+		//Escondo todos los botones
+		//contenidos en artAltaUsuarios
+		$("#artAltaUsuarios > button").hide();
+		$("#btnBajaUsuario").show();
 	}
-	var  Cambio = function()
+	var Cambio = function()
 	{
-		$("h2").html("Alta de usuarios");
-		$("#artAltaUsuarios").show("solow");
-		$("#artAltaUsuarios > button").hide();  //escondo nlos botones de artaltausuarios
+		$("h2").html("Cambio de usuarios");
+		$("#artAltaUsuarios").show("slow");
+		//Escondo todos los botones
+		//contenidos en artAltaUsuarios
+		$("#artAltaUsuarios > button").hide();
 		$("#btnCambioUsuario").show();
 	}
+
+
 	var GuardaUsuario = function()
 	{
-
-	}
-
-	var teclaUsuartio = function(tecla)
-	{
-		if(tecla.which == 13)  //enter
+		event.preventDefault();
+		//Código para guardar usuario.
+		//Recuperamos los valores del formulario y los
+		//ponemos en variables locales.
+		var usuario = $("#txtUsuarioNombre").val(); 
+		var nombre  = $("#txtNombre").val();
+		var clave   = $("#txtClaveNombre").val();
+		var tipo    = $("#txtTipo").val();
+		if(usuario!="" && nombre!="" && clave!="" && tipo!="")
 		{
-			var usuario = $("#txtUsuaron").val();
-			var parametros = "opcion=buscaUsuario"+
-							"&usuario="+usuario+
-							"&id="+Math.random();
+			//Parámetros para el ajax
+			var parametros = "opcion=guarda"+
+							 "&usuario="+usuario+
+							 "&nombre="+nombre+
+							 "&clave="+clave+
+							 "&tipo="+tipo+
+							 "&id="+Math.random();
 			$.ajax({
-			cache:false,
-			type:"POST",
-			dataType:"json",
-			url:"php/utilerias.php",
-			data:parametros,
-			success:function(response){
-				//si todo sale bien
-				if(response.respuesta == true)
-				{
-					$("#txtNombre").val(response.nombre);
-					$("#txtClaveNombre").val(response.clave);
-					$("#txtTipo option:selectec").text(response.tipo);
+				cache:false,
+				type:"POST",
+				dataType:"json",
+				url:"php/utilerias.php",
+				data:parametros,
+				success:function(response){
+					if(response.respuesta == true)
+					{
+						alert("Usuario registrado");
+						$("#artAltaUsuarios > input").val(""); 
+					}
+					else
+						alert("Usuario no registrado y/o duplicado");
+				},
+				error:function(xhr,ajaxOptions,thrownError){
+					console.log("No se pudo conectar al servidor");
 				}
-			},
-			error:function(xhr,ajaxOptions,thrownError) {
-				console.log("Fallo en el servidor");
-				//si todo sale mal
-			}
+			});
+		}
+		else
+			alert("Todos los campos son obligatorios");
 
-			}
-		});
 	}
-	//keypress: se ejecuta cada vez que presiono una tecla sobre el input.
+	var teclaUsuario = function(tecla)
+	{
+		if(tecla.which == 13) //Enter
+		{
+			var usuario = $("#txtUsuarioNombre").val();
+			var parametros = "opcion=buscaUsuario"+
+							 "&usuario="+usuario+
+							 "&id="+Math.random();
+			$.ajax({
+				cache:false,
+				type:"POST",
+				dataType:"json",
+				url:"php/utilerias.php",
+				data:parametros,
+				success:function(response){
+					if(response.respuesta == true)
+					{
+						$("#txtNombre").val(response.nombre);
+						$("#txtClaveNombre").val(response.clave);
+						$("#txtTipo option:selected").text(response.tipo);
+					}
+				},
+				error:function(xhr,ajaxOptions,thrownError){
+					console.log("Fallo en el servidor");
+				}
+			});
+		}
+	}
+	//keypress: se ejecuta cada vez que presiono una 
+	//tecla sobre el input.
 	$("#txtClave").on("keypress",teclaClave);
 	$("#btnAlta").on("click",Alta);
 	$("#btnBaja").on("click",Baja);
 	$("#btnCambio").on("click",Cambio);
+	$("#txtUsuarioNombre").on("keypress",teclaUsuario);
 	$("#btnGuardaUsuario").on("click",GuardaUsuario);
-	$("#btnUsuarioNombre").on("click",teclaUsuario);
 }
-
 //Evento inicial
 $(document).on("ready",inicioUsuarios);
-
-
-
-
-
-
-
 
 
 
